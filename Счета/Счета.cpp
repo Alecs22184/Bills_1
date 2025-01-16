@@ -5,11 +5,6 @@
 #include <string>
 using namespace std;
 
-//struct date //создаем еще одну структуру, чтобы вложить ее в структуру building // дата постройки
-//{
- //   char* month; // Месяц постройки дома
-  //  int year; // Год
-//};
 
 struct Check
 {
@@ -19,9 +14,12 @@ struct Check
 
 };
 
-void show(Check& Andrey_account) //создаем функцию, которая принимает структуру, как параметр
+void show(Check& object,int number_A, float bal) //создаем функцию, которая принимает структуру, как параметр
 {
-    cout << "Ваш счет: " << Andrey_account.owner_name << "," << "№" << " " << Andrey_account.account_number << "," << "Баланс:" << " " << Andrey_account.balance << endl;
+    object.account_number = number_A;
+    object.balance = bal;
+
+    cout << "Ваш счет: " << object.owner_name << "," << "№" << " " << object.account_number << "," << "Баланс:" << " " << object.balance << endl;
 
 }
 
@@ -31,6 +29,7 @@ int main()
 
 
     Check Andrey_account;
+
     int number_A{};
     float bal{};
     cout << "Введите номер счета: ";
@@ -39,12 +38,12 @@ int main()
     cin >> bal;
     cout << "Введите новый баланс: ";
     cin >> bal;
-    // string name{ "Андрей"};
-    Andrey_account.account_number = number_A;
+   
+  
     Andrey_account.owner_name = { "Андрей" };
-    Andrey_account.balance = bal;
+   
 
-    show(Andrey_account);
-
+    show(Andrey_account, number_A, bal);
+  
     return 0;
 }
