@@ -14,10 +14,19 @@ struct Check
 
 };
 
-void show(Check& object,int number_A, float bal) //создаем функцию, которая принимает структуру, как параметр
+void show(Check& object,int &number_A, float& bal) //создаем функцию, которая принимает структуру, как параметр
 {
     object.account_number = number_A;
     object.balance = bal;
+
+   // cout << "Ваш счет: " << object.owner_name << "," << "№" << " " << object.account_number << "," << "Баланс:" << " " << object.balance << endl;
+
+}
+
+void showPrint(Check& object) //создаем функцию, которая принимает структуру, как параметр
+{
+   // object.account_number = number_A;
+   // object.balance = bal;
 
     cout << "Ваш счет: " << object.owner_name << "," << "№" << " " << object.account_number << "," << "Баланс:" << " " << object.balance << endl;
 
@@ -32,18 +41,21 @@ int main()
 
     int number_A{};
     float bal{};
+    Andrey_account.owner_name = { "Андрей" };
     cout << "Введите номер счета: ";
     cin >> number_A;
     cout << "Введите баланс: ";
     cin >> bal;
+    show(Andrey_account, number_A, bal);
+    showPrint(Andrey_account);
     cout << "Введите новый баланс: ";
     cin >> bal;
    
   
-    Andrey_account.owner_name = { "Андрей" };
+   // Andrey_account.owner_name = { "Андрей" };
    
 
     show(Andrey_account, number_A, bal);
-  
+    showPrint(Andrey_account);
     return 0;
 }
